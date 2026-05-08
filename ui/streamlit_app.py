@@ -44,7 +44,7 @@ st.markdown(
     }
 
     .guide-box {
-        background-color: #f7f9fc;
+        background-color: #f0f0f0;
         padding: 15px;
         border-radius: 12px;
         border: 1px solid #e6e6e6;
