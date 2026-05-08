@@ -1,13 +1,16 @@
-import whisper
+import os
+import streamlit as st
+from groq import Groq
 
 class SpeechService:
-    _model = None
-
-    def __init__(self, model_name="base"):
-        if SpeechService._model is None:
-            SpeechService._model = whisper.load_model(model_name)
-        self.model = SpeechService._model
+    def __init__(self):
+        self.client = Groq(api_key=st.secrets.get("GROQ_API_KEY") or os.getenv("GROQ_API_KEY"))
 
     def transcribe(self, file_path: str) -> str:
-        result = self.model.transcribe(file_path)
-        return result["text"]
+        """Transcribe audio using Groq's Whisper API"""
+        with open(file_path, "rb") as audio_file:
+            transcript = self.client.audio.transcriptions.create(
+                model="whisper-large-v3-turbo",
+                file=audio_file,
+            )
+        return transcript.text

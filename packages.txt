@@ -1,2 +1,4 @@
 ffmpeg
 libsndfile1
+build-essential
+libopenblas-dev
