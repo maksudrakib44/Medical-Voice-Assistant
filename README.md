@@ -82,7 +82,7 @@ AI Response Generation
     ↓
 Text-to-Speech
     ↓
-AI Voice Reply
+AI Reply
 ```
 
 ---
@@ -239,7 +239,7 @@ Always seek professional medical help for serious conditions.
 
 #  Live Preview:
 
-    Visit: https://medivoiceai.streamlit.app/
+    Visit: https://medivoiceai.streamlit.app
 
 ## Home Screen
 
