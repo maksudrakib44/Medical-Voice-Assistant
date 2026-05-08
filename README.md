@@ -1,4 +1,4 @@
-````markdown
+
 ## 🏥 Medical Voice Assistant
 
 An AI-powered real-time medical voice assistant built using Python, Streamlit, Whisper, LangGraph, and Groq LLM.
@@ -239,7 +239,7 @@ Always seek professional medical help for serious conditions.
 
 #  Live Preview:
 
-    
+    Visit: https://medivoiceai.streamlit.app/
 
 ## Home Screen
 
