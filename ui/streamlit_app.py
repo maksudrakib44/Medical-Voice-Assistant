@@ -13,7 +13,6 @@ import streamlit as st
 from streamlit_mic_recorder import mic_recorder
 
 from app.services.speech_service import SpeechService
-from app.services.tts_service import TTSService
 from app.graph.builder import build_graph
 
 # =====================================================
@@ -61,7 +60,6 @@ st.markdown(
 # SERVICES
 # =====================================================
 speech_service = SpeechService()
-tts_service = TTSService()
 graph = build_graph()
 
 # =====================================================
@@ -93,8 +91,8 @@ with st.sidebar:
         - Click **Start Recording**
         - Speak naturally
         - Wait for AI response
-        - AI can remember session conversation
-        - Use **Stop Voice** anytime
+        - AI remembers current session conversation
+        - Clear chat anytime
 
         ---
         """
@@ -127,37 +125,15 @@ st.info(f"Status: {st.session_state.status}")
 # =====================================================
 # CONTROL PANEL
 # =====================================================
-col1, col2 = st.columns(2)
-
-with col1:
-
-    stop_voice = st.button(
-        "⏹ Stop Voice",
-        use_container_width=True
-    )
-
-with col2:
-
-    clear_chat = st.button(
-        "🗑 Clear Chat",
-        use_container_width=True
-    )
-
-# =====================================================
-# STOP VOICE
-# =====================================================
-if stop_voice:
-
-    tts_service.stop()
-
-    st.session_state.status = "🔇 Voice Stopped"
+clear_chat = st.button(
+    "🗑 Clear Chat",
+    use_container_width=True
+)
 
 # =====================================================
 # CLEAR CHAT
 # =====================================================
 if clear_chat:
-
-    tts_service.stop()
 
     st.session_state.history = []
 
@@ -169,8 +145,8 @@ if clear_chat:
 # MIC RECORDER
 # =====================================================
 audio = mic_recorder(
-    start_prompt="🎤 Tap to Speak",
-    stop_prompt="⏹ Send Voice",
+    start_prompt="🎤 Start Recording",
+    stop_prompt="⏹ Stop Recording",
     key="medical_voice_ai"
 )
 
@@ -180,9 +156,6 @@ audio = mic_recorder(
 if audio and not st.session_state.processing:
 
     st.session_state.processing = True
-
-    # stop previous voice if running
-    tts_service.stop()
 
     with tempfile.NamedTemporaryFile(
         delete=False,
@@ -258,13 +231,6 @@ if audio and not st.session_state.processing:
             "role": "assistant",
             "content": ai_response
         })
-
-        # =====================================================
-        # TEXT TO SPEECH
-        # =====================================================
-        st.session_state.status = "🔊 Speaking..."
-
-        tts_service.speak(ai_response)
 
         st.session_state.status = "🟢 Ready"
 

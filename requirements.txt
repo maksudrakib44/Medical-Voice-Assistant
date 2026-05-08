@@ -1,17 +1,21 @@
 streamlit==1.35.0
-streamlit-mic-recorder
+streamlit-mic-recorder==0.0.8
 
-openai-whisper
+openai-whisper==20231117
 
-langgraph
-langchain
+langchain==0.1.20
+langchain-core==0.1.52
+langchain-community==0.0.38
 
-groq==0.9.0
+langgraph==0.0.38
 
-python-dotenv
-pydub
+groq==0.5.0
+httpx==0.24.1
+openai==1.30.1
+
+python-dotenv==1.0.1
+pydub==0.25.1
+
+numpy==1.26.4
+torch==2.2.2
 tqdm
-numpy<2
-torch
-
-httpx==0.27.2
