@@ -20,3 +20,4 @@ torch==2.2.2
 tqdm
 
 rich==13.7.1
+protobuf<5
