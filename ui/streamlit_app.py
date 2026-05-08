@@ -145,8 +145,8 @@ if clear_chat:
 # MIC RECORDER
 # =====================================================
 audio = mic_recorder(
-    start_prompt="🎤 Start Recording",
-    stop_prompt="⏹ Stop Recording",
+    start_prompt="🎤 Tap to Talk",
+    stop_prompt="⏹ Send Voice Message",
     key="medical_voice_ai"
 )
 
