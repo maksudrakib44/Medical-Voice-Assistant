@@ -19,4 +19,4 @@ numpy==1.26.4
 tqdm==4.66.5
 
 rich==13.7.1
-protobuf==4.25.3
+protobuf<5
