@@ -1,20 +1,29 @@
+# Python
 __pycache__/
 *.pyc
 *.pyo
 *.pyd
 
-.env
-
+# Virtual environment
 venv/
 env/
-.venv/
 
+# Environment variables
+.env
+
+# Logs
 *.log
 
-*.wav
-*.mp3
-*.mp4
-
-.DS_Store
-.cache/
+# Streamlit
 .streamlit/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Model cache (Whisper)
+.cache/
